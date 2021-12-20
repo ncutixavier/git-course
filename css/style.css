@@ -1,0 +1,135 @@
+body{
+    background-color: lightblue;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-size: 10px; /* 1rem => 10px*/
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+  ::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+  ::-webkit-scrollbar-thumb {
+  background: #ccc; 
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ccc; 
+} 
+
+.articles{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.article{
+    width: 25%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px 0;
+    text-decoration: none;
+    color: #034c66;
+}
+
+.article:hover{
+    background-color: #034c66;
+    color: #fff;
+    transition: all .7s;
+}
+
+.article-img img, .blog-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.blog-container{
+    width: 50%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    color: #034c66;
+}
+
+.blog p{
+    font-size: 1.2rem;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.blog button{
+    background-color: #034c66;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 20px 0;
+    border: 1px solid #034c66;
+}
+
+.blog button:hover{
+    background-color: #fff;
+    color: #034c66;
+    transition: all .7s;
+}
+
+.navbar{
+    background-color: #fff;
+    padding: 2rem 3rem;
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: lightblue;
+    position: fixed;
+    position:-webkit-sticky;
+    position:sticky;
+	top: 0;
+}
+
+.navbar a{
+    color: #079cd3;
+    text-decoration: none;
+}
+
+h1, .article h3{
+    margin: 10px 0;
+    font-size: 2rem;
+}
+
+.article p{
+    font-size: 1.2rem;
+    line-height: 1.5;
+    text-align: justify;
+    margin-bottom: 1rem;
+}
+
+.article a{
+    font-size: 1.3rem;
+}
+
+@media (max-width: 768px){
+    .article{
+        width: 80%;
+    }
+    .articles{
+        flex-direction: column;
+    }
+    .blog-container{
+        width: 100%;
+    }
+}
