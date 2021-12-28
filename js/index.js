@@ -43,6 +43,17 @@ const articles = [
   },
 ];
 
+const formContainer = document.querySelector('.form-container');
+const createBtn = document.querySelector('.create-btn');
+const closeModal = document.querySelector('.close-modal');
+const addArticleForm = document.querySelector('.add-article-form');
+const title = document.querySelector('#title');
+const description = document.querySelector('#content');
+const image = document.querySelector('#image');
+const addArticleBtn = document.querySelector('.add-article-btn');
+const alert = document.querySelector('.alert');
+const loading = document.querySelector('.loading');
+
 function displayArticles(articles) {
   let blog = '';
   for (let i = 0; i < articles.length; i++) {
@@ -54,6 +65,14 @@ function displayArticles(articles) {
                 </div>
                 <h3>${articles[i].title}</h3>
                 <p>${articles[i].description.substring(0, 120)}...</p>
+                <div class="action-btn">
+                  <button type="submit" class="edit-btn">
+                    <i class="far fa-edit"></i>
+                  </button>
+                  <button type="submit" class="delete-btn">
+                    <i class="far fa-trash-alt"></i>
+                  </button>
+                </div>
             </div>
         </a>
         `;
@@ -63,4 +82,52 @@ function displayArticles(articles) {
 }
 
 const articlesContainer = document.querySelector('.articles');
-articlesContainer.innerHTML = displayArticles(articles);
+// articlesContainer.innerHTML = displayArticles(articles);
+
+createBtn.addEventListener('click', () => {
+  formContainer.classList.toggle('open-modal');
+});
+
+closeModal.addEventListener('click', () => {
+  formContainer.classList.toggle('open-modal');
+});
+
+addArticleForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const article = {
+    title: title.value,
+    description: description.value,
+    image: image.value,
+  };
+  console.log(article);
+
+  addArticleBtn.innerHTML += '<i class="fas fa-spinner fa-spin"></i>';
+  addArticleBtn.setAttribute('disabled', 'disabled');
+
+  db.collection('blog')
+    .add(article)
+    .then(() => {
+      alert.style.display = 'block';
+      alert.innerHTML = `Article added successfully`;
+      addArticleBtn.innerHTML = 'Add Article';
+      addArticleBtn.removeAttribute('disabled');
+
+      setTimeout(() => {
+        formContainer.classList.toggle('open-modal');
+        window.location.reload();
+      }, 1000);
+    });
+});
+
+db.collection('blog')
+  .get()
+  .then((snapshot) => {
+    let articles = [];
+    snapshot.docs.forEach((doc) => {
+      console.log(doc.data());
+      articles.push(doc.data());
+    });
+    loading.style.display = 'none';
+    articlesContainer.innerHTML = displayArticles(articles);
+  });
