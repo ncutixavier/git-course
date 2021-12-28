@@ -14,8 +14,32 @@
 <body>
     <div class="navbar">
         <a href="index.html">Blog</a>
+        <button type="submit" class="create-btn">create</button>
     </div>
+    <div class="loading"></div>
     <div class="articles"></div>
+
+    <div class="form-container">
+        <form class="add-article-form">
+            <div class="alert"></div>
+            <h1>Add New Article</h1>
+            <div class="form-input">
+                <label for="title">Image Url</label>
+                <input type="text" name="image" id="image" placeholder="image url">
+            </div>
+            <div class="form-input">
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title" placeholder="Title">
+            </div>
+            <div class="form-input">
+                <label for="content">Content</label>
+                <textarea name="content" id="content" cols="30" rows="6" placeholder="Content"></textarea>
+            </div>
+            <button class="add-article-btn">Add Article</button>
+            <button type="reset" class="close-modal">Cancel</button>
+        </form>
+    </div>
+
     <!-- <h1>Git Course</h1>
 
     <form id="register">
@@ -68,6 +92,8 @@
             });
         });
     </script> -->
+    <script src="https://kit.fontawesome.com/65ed1d5114.js" crossorigin="anonymous"></script>
+    <script src="js/config.js"></script>
     <script src="js/index.js"></script>
 </body>
 
