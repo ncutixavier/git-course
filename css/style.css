@@ -165,8 +165,7 @@ h1,
     align-items: center;
 }
 
-.edit-btn {
-    background-color: #079cd3;
+.btn{
     color: #fff;
     padding: 10px;
     border-radius: 5px;
@@ -175,6 +174,10 @@ h1,
     font-size: 1.2rem;
     font-weight: bold;
     margin: 5px 0;
+}
+
+.edit-btn {
+    background-color: #079cd3;
     border: 1px solid #079cd3;
 }
 
@@ -186,20 +189,23 @@ h1,
 
 .delete-btn {
     background-color: #ff0000;
-    color: #fff;
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin: 5px 0;
     border: 1px solid #ff0000;
 }
 
 .delete-btn:hover {
     background-color: #fff;
     color: #ff0000;
+    transition: all 0.7s;
+}
+
+.view-btn {
+    background-color: #00aeff;
+    border: 1px solid #00aeff;
+}
+
+.view-btn:hover {
+    background-color: #fff;
+    color: #00aeff;
     transition: all 0.7s;
 }
 
@@ -334,4 +340,20 @@ h1,
     .add-article-form {
         width: 80%;
     }
+}
+
+.comments-header h1{
+    margin: 10px 0;
+}
+
+.comments{
+    margin: 10px 0;
+}
+
+.comment{
+    margin: 15px 0;
+}
+
+.comment p{
+    color: gray;
 }
