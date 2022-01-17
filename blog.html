@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,19 +9,41 @@
     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
     <link rel="stylesheet" href="css/style.css" />
     <title>Git Course</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="navbar">
-        <a href="index.html">Blog</a>
+      <a href="index.html">Blog</a>
     </div>
     <div class="loading"></div>
     <div class="blog-container">
-        <div class="blog"></div>
+      <div class="blog"></div>
     </div>
-    <script src="js/config.js"></script>
-    <script src="js/index.js"></script>
-    <script src="js/blog.js"></script>
-</body>
+    <div class="form-container">
+      <form class="add-article-form add-comment-form">
+        <div class="alert"></div>
+        <h1>Add Your Comment</h1>
+        <div class="form-input">
+          <label for="title">Name</label>
+          <input type="text" name="name" id="name" placeholder="Your name" />
+        </div>
 
+        <div class="form-input">
+          <label for="content">Comment</label>
+          <textarea
+            name="Comment"
+            id="comment"
+            cols="30"
+            rows="6"
+            placeholder="Comment"
+          ></textarea>
+        </div>
+        <div class="form-button">
+          <button class="add-article-btn add-comment-btn">Add Comment</button>
+          <button type="reset" class="close-modal">Cancel</button>
+        </div>
+      </form>
+    </div>
+    <script src="js/blog.js"></script>
+  </body>
 </html>
